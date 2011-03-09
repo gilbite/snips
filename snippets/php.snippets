@@ -1,0 +1,24 @@
+snippet v
+	var_dump($${1});
+snippet ret
+	return ${1};${2}
+snippet die
+	die(${1});
+snippet try
+	try {
+		${3://code here...}
+	} catch (${1:Exception} $${2:e}){
+		${4://code here...}
+	}
+snippet throw
+	throw new ${1}Exception(${2});
+snippet eol
+	PHP_EOL
+snippet ar
+	$${1}->${2}
+snippet arr
+	$${1}->${2}->${3}
+snippet this
+	$this->${1}
+snippet get
+	get${1}(${2})${3}

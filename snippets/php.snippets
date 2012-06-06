@@ -24,3 +24,17 @@ snippet get
 	get${1}(${2})${3}
 snippet e
 	<?php echo $${1} ?>
+snippet provider
+	/**
+	 * @dataProvider providerTest$1
+	 */
+	public function test${1:MethodName}(${2})
+	{
+	}
+
+	public function providerTest$1()
+	{
+		return array(
+			array(${3}),
+		);
+	}

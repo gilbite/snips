@@ -10,8 +10,14 @@ snippet try
 	} catch (${1:Exception} $${2:e}){
 		${4://code here...}
 	}
-snippet throw
-	throw new ${1}Exception(${2});
+snippet th
+	throw new ${1}Exception('${2}');
+snippet thi
+	throw new InvalidArgumentException('${1}');
+snippet thd
+	throw new DomainException('${1}');
+snippet thr
+	throw new RuntimeException('${1}');
 snippet eol
 	PHP_EOL
 snippet ar
@@ -24,6 +30,7 @@ snippet get
 	get${1}(${2})${3}
 snippet e
 	<?php echo $${1} ?>
+
 snippet provider
 	/**
 	 * @dataProvider providerTest$1
@@ -42,7 +49,7 @@ snippet acc
 	/**
 	 * returns $1
 	 *
-	 * @return ${2:TypeName}
+	 * @return ${2:mixed}
 	 */
 	public function ${1:PropertyName}()
 	{
@@ -53,8 +60,9 @@ snippet acc
 	 * sets $1
 	 *
 	 * @param $2 $$1
+	 * @return void
 	 */
-	public function set$1($$1)
+	public function set${3}$1($$1)
 	{
 	    $this->$1 = $$1;
 	}

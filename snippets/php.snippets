@@ -1,7 +1,7 @@
 snippet v
 	var_dump($${1});
 snippet ret
-	return ${1};${2}
+	return ${1};
 snippet die
 	die(${1});
 snippet try
@@ -47,6 +47,12 @@ snippet provider
 	}
 snippet acc
 	/**
+	 * $1 holder
+	 * @var $2
+	 */
+	protected $$1;
+
+	/**
 	 * returns $1
 	 *
 	 * @return ${2:mixed}
@@ -66,3 +72,54 @@ snippet acc
 	{
 	    $this->$1 = $$1;
 	}
+snippet ase
+	$this->assertEquals(${1:expect}, $${2:object}->${3:method}(${4:arg}));
+snippet ass
+	$this->assertSame(${1:expect}, $${2:object}->${3:method}(${4:arg}));
+snippet asi
+	$this->assertInstanceOf('${1:expect}', $${2:object});
+snippet ast
+	$this->assertTrue($${1:object}->${2:method}(${3:arg}));
+snippet asf
+	$this->assertFalse($${1:object}->${2:method}(${3:arg}));
+snippet asc
+	$this->assertCount(${1:expect}, $${2:list});
+snippet asn
+	$this->assertNull($${1:object});
+snippet mock
+	$${1:val} = $this->getMock('${2:class}', array(), array(), '', false);
+snippet exp
+	$${1:mock}->expects($this->${2:any}())->method('${3:method}')->will($this->returnValue(${4}));
+snippet mt
+	public function test${1:TestName}()
+	{
+		${2}
+	}
+snippet ct
+	/**
+	 * @${1:group} ${2}
+	 */
+	class ${3:`Filename()`} extends TalesTestCase
+	{
+		public function testFail()
+		{
+			$this->fail('hoge');
+		}
+	}
+snippet cdt
+	class `Filename()` extends TalesDatabaseTestCase
+	{
+		public function getDataSet()
+		{
+			return new PHPUnit_Extensions_Database_DataSet_YamlDataSet($this->getFixtureRoot() . '/unit/${1:path/to/test}/${2:`Filename()`}.yml');
+		}
+	}
+delete fun
+snippet fun
+	${1:public} function ${2:methodName}(${3:$arg})
+	{
+		${4:// code here}
+	}
+snippet php
+	<?php
+
